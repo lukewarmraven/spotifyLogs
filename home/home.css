@@ -58,6 +58,7 @@ body{
 body a {
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
+    color: black;
 }
 body a:visited{
     color: black;
@@ -111,6 +112,16 @@ body a:visited{
     justify-content: center;
 
     margin: 3% 3% 0 3%;
+}
+button{
+    background: #e0e0e0; /* Light gray for a neutral look */
+    cursor: pointer;
+    box-shadow: 0.3em 0.3em 0.6em #b8b8b8;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+button:active{
+    transform: translateY(0.25em);
 }
 .submit{
     width: 50%;
