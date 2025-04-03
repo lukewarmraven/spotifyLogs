@@ -1,11 +1,14 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwMEGDcv4y5zF1zkYO-eddu9_cUlC2YugSRMGeOX9U0_lV0XTDltZ4VuzFYb6aVg4bD1A/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx5662obKQd7zhf79Gw8sI1G9IU3HcI9c8Y8M2vTUcDGofFXd51Z4OeYNkLJEpzP-Id8Q/exec'
 
 const form = document.forms['form-logMaker']
 
 form.addEventListener('submit', e => {
   
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! Form is submitted" ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
+    e.preventDefault()
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Thank you! Form is submitted" ))
+    .then(() => { window.location.reload(); })
+    .catch(error => console.error('Error!', error.message))
+  })
+
