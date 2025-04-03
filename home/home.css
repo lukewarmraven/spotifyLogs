@@ -1,0 +1,118 @@
+:root{
+    --color-white:#eeebeb;
+    --color-green1:#034732;
+    --color-green2:#008148;
+    --font-spotify:"Lexend";
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--color-green2);
+}
+.div-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100%;
+}
+.title,.name,.footer,.logMaker input,label,select,textarea{
+    font-family: var(--font-spotify);
+}
+.div-title{
+    display: flex;
+    align-items: last baseline;
+    white-space: nowrap;
+    margin: 1% 0;
+}
+.spotify{
+    width: 3.5em;
+    position: relative;
+    top: 0.7em;
+    right: 0.7em;
+    margin: 0 1%;
+}
+.title{
+    color: var(--color-white);
+    margin: 0 0 5% 0 ;
+    font-weight: 800;
+    font-size: 2.5em;
+
+
+    color: #fff;
+    animation: neonGlow 1.5s infinite alternate;
+}
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+    50% { text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 40px #ff0; }
+    100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff; }
+}
+.name,.div-footer{
+    font-size: 1em;
+    margin: 2%;
+}
+body a {
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+body a:visited{
+    color: black;
+}
+.name a:hover,.footer a:hover{
+    color: var(--color-white);
+}
+.logMaker input:hover,select:hover,textarea:hover{
+    box-shadow: 0.2em 0.2em 1em var(--color-green1);
+}
+.footer{
+    font-size: 0.8em;
+}
+.logMaker{
+    width: 100%;
+    max-width: 400px;
+
+    padding: 0.75% 6%;
+    border-radius: 0.75em;
+    background-color: rgba(238,235,235,0.75);
+}
+.logMaker div{
+    display: flex;
+    flex-direction: column;
+}
+.logMaker input, select,.div-date input[type="date"],.div-submit button {
+    padding: 1% 3%;
+    height:1.4rem;
+    margin-bottom: 1.5%;
+
+    font-size: 0.7em;
+    outline: 0;
+    border: 0;
+    border-radius: 0.25em;
+}
+.logMaker label{
+    margin: 0 0 0.8% 2%;
+
+    font-size: 0.7em;
+}
+.div-logMsg textarea{
+    padding: 2% 3%;
+    font-size: 0.7em;
+    outline: 0;
+    border: 0;
+    border-radius: 0.25em;
+}
+.div-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 3% 3% 0 3%;
+}
+.submit{
+    width: 50%;
+    height: 2rem;
+}
