@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <script src="home.js"></script>
 </head>
 <body>
     <div class="div-body">
@@ -21,7 +20,8 @@
                 Raven</a></p>
         </div>
          <div class="logMaker">
-            <form method="post" action="https://script.google.com/macros/s/AKfycbx5662obKQd7zhf79Gw8sI1G9IU3HcI9c8Y8M2vTUcDGofFXd51Z4OeYNkLJEpzP-Id8Q/exec" name="form-logMaker" target="home.html">
+            <form method="post" name="logform" target="home/home.html"
+            action="https://script.google.com/macros/s/AKfycbxPc3V7rqv3Bd8Wgh_DfKndyKrsM2Ocv4zWQDQclPhhBnK2te6_t0AXt2PDFwa8xUC3/exec">
                 <div class="div-members">
                     <label for="members" class="members">Choose member: </label>
                     <select name="members" id="members" required>
@@ -56,16 +56,33 @@
                     <textarea name="logMsg" id="logMsg" rows="3" cols="50"></textarea>
                 </div>
                 <div class="div-submit">
-                    <button class="submit" value="Submit" type="submit"> Submit </button>
+                    <button id="submit" value="Submit" type="submit"> Submit </button>
                 </div>
             </form>
         </div>
         <div class="div-footer">
+            <p id="message"></p>
             <p class="footer">Click
                 <a target="_blank" href="https://docs.google.com/spreadsheets/d/1nPQxMeAq4ef9Z4RVcb7CtA3osz41SJlITIBbCm0t9sk/edit?usp=sharing">
                     HERE</a> to check the spreadsheet!</p>
         </div>
     </div>
+    <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbxPc3V7rqv3Bd8Wgh_DfKndyKrsM2Ocv4zWQDQclPhhBnK2te6_t0AXt2PDFwa8xUC3/exec';
 
+const form = document.forms['logform'];
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetch(scriptURL, { mode:"no-cors", method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! Form is submitted" ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+  });
+} else {
+  console.warn("Form not found!");
+}
+    </script>
 </body>
 </html>

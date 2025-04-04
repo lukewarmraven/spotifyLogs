@@ -1,14 +1,21 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbx5662obKQd7zhf79Gw8sI1G9IU3HcI9c8Y8M2vTUcDGofFXd51Z4OeYNkLJEpzP-Id8Q/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyEgOwUYj4ptb4eqB_F0h_FPS7wOGPkan10MGfoRuggci_WBM7z8Bj8KNZ7dbXm8oPcGg/exec';
 
-const form = document.forms['form-logMaker']
+  const form = document.getElementById('logform');
+  const msg = document.getElementById('message');
 
-form.addEventListener('submit', e => {
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = 'Recorded!';
+          setTimeout(() => msg.innerHTML = "", 5000);
+        })
+        .catch(error => console.error('Error!', error.message));
+        console.log('JS Loaded properly!');
+    });
+  } else {
+    console.warn("Form not found!");
+  }
   
-    e.preventDefault()
-    
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => alert("Thank you! Form is submitted" ))
-    .then(() => { window.location.reload(); })
-    .catch(error => console.error('Error!', error.message))
-  })
 
